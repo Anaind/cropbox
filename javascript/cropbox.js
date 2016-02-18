@@ -30,6 +30,10 @@ var cropbox = function(options){
             canvas.width = width;
             canvas.height = height;
             var context = canvas.getContext("2d");
+            if(options.imgBackground) {
+                context.fillStyle = options.imgBackground;
+                context.fillRect(0, 0, width, height);
+            }
             context.drawImage(this.image, 0, 0, sw, sh, dx, dy, dw, dh);
             var imageData = canvas.toDataURL('image/png');
             return imageData;
